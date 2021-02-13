@@ -15,15 +15,16 @@ import java.util.NavigableMap;
 @Service
 public class ScheduledDataSendingService {
     private SimpMessagingTemplate simpMessagingTemplate;
+    private OrderBookDataReceiver dataReceiver;
 
-    public ScheduledDataSendingService(SimpMessagingTemplate simpMessagingTemplate) {
+    public ScheduledDataSendingService(SimpMessagingTemplate simpMessagingTemplate, OrderBookDataReceiver dataReceiver) {
         this.simpMessagingTemplate = simpMessagingTemplate;
+        this.dataReceiver = dataReceiver;
     }
 
     @Scheduled(initialDelay = 2000, fixedRate = 1500)
     public void sendMessage() {
-        Map<Side, NavigableMap<Double, OrderBookDataView>> dataMap = OrderBookDataReceiver.getDataMap();
-
+        Map<Side, NavigableMap<Double, OrderBookDataView>> dataMap = dataReceiver.getDataMap();
         Map<Side, Collection<OrderBookDataView>> reconstructedDataMap = new HashMap<>();
         dataMap.forEach((side, books) -> reconstructedDataMap.put(side, books.values()));
 

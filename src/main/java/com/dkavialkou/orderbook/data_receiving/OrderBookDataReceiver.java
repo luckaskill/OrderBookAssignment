@@ -127,7 +127,7 @@ public class OrderBookDataReceiver {
     }
 
 
-    public static Map<Side, NavigableMap<Double, OrderBookDataView>> getDataMap() {
+    public Map<Side, NavigableMap<Double, OrderBookDataView>> getDataMap() {
         return dataMap;
     }
 }
