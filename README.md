@@ -15,9 +15,6 @@ In console set credits as environment variables. For example for windows it's li
 
 Then go to the **`target`** folder in project root and type `java -jar orderbook-1.0.jar`
 
-
-Also you can start it from IDE (_com.dkavialkou.orderbook.App_).
-
 ## How it works:
 On application startup the system consuming balances from the rest api and log the response.
 Then opens websocket connection, subscribes to appropriate channel 
