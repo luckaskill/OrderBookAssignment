@@ -44,9 +44,9 @@ public class OrderBookDataReceiver {
     private static final URI SOCKET_URI_ADDRESS = URI.create("wss://api-public.prelive.cex.tribe.sh/api/v1/ws");
     private static final URI BALANCE_URI_ADDRESS = URI.create("https://api-public.prelive.cex.tribe.sh/api/v1/balance");
 
-    private OrderBookDataReceiver(@Value("${api_secret}") String apiSecret, @Value("${api_key}") String apiKey) {
-        BSDEX_API_KEY = apiKey;
-        BSDEX_API_SECRET = apiSecret;
+    private OrderBookDataReceiver() {
+        BSDEX_API_KEY = System.getenv("BSDEX_API_KEY");
+        BSDEX_API_SECRET = System.getenv("BSDEX_API_SECRET");
 
         OrderBookDataReceiver.dataMap = prepareDataMap();
     }

@@ -5,14 +5,16 @@
 2. Maven 3
 
 ## Install:
-First go to the **`projectroot/src/main/resources`** and put auth properties to the `application.properties` file in format                  
-_**api_key=put-your-api-key-here   
-api_secret=put-your-api-secret-here**_
-
-Then in the command line go to the project folder and type `mvn clean package`
+In console go to the project folder and type `mvn clean package`
 
 ## Execute:
-In console go to the **`target`** folder in project root and type `java -jar orderbook-1.0-SNAPSHOT.jar`
+In console set credits as environment variables. For example for windows it's like below
+
+**`set BSDEX_API_KEY=put-your-api-key-here`**
+**`set BSDEX_API_SECRET=put-your-api-secret-here`**
+
+Then go to the **`target`** folder in project root and type `java -jar orderbook-1.0.jar`
+
 
 Also you can start it from IDE (_com.dkavialkou.orderbook.App_).
 
